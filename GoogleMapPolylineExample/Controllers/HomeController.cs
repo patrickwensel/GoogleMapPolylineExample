@@ -25,17 +25,19 @@ namespace GoogleMapPolylineExample.Controllers
 
             List<CorridorTrackPoint> corridorTrackPoints = new List<CorridorTrackPoint>
             {
-                new CorridorTrackPoint(){ Lat = 38.9053623, Lng = -121.0841413 },
-                new CorridorTrackPoint(){ Lat = 38.9041518, Lng = -121.0836144 }
+                new CorridorTrackPoint(){ Lat = 37.772, Lng = -122.214 },
+                new CorridorTrackPoint(){ Lat = 21.291, Lng = -157.821  },
+                new CorridorTrackPoint(){ Lat = -18.142, Lng = 178.431 },
+                new CorridorTrackPoint(){ Lat = -27.467, Lng = 153.027  },
             };
-
+       
             string arrayOfTrackPoints = "[";
 
             foreach(CorridorTrackPoint corridorTrackPoint in corridorTrackPoints)
             {
-                arrayOfTrackPoints = arrayOfTrackPoints + "{ lat: "
+                arrayOfTrackPoints = arrayOfTrackPoints + "{ \"lat\": "
                     + corridorTrackPoint.Lat
-                    + ", lng: "
+                    + ", \"lng\": "
                     + corridorTrackPoint.Lng
                     + " },";
             }
