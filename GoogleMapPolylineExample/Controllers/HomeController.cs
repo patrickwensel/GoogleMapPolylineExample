@@ -12,6 +12,7 @@ namespace GoogleMapPolylineExample.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -20,6 +21,18 @@ namespace GoogleMapPolylineExample.Controllers
 
         public IActionResult Index()
         {
+            var trackPoints = _context.CorridorTrackPoints.ToList();
+
+
+       //     [
+       //         { lat: 37.772, lng: -122.214 },
+			    //{ lat: 21.291, lng: -157.821 },
+			    //{ lat: -18.142, lng: 178.431 },
+			    //{ lat: -27.467, lng: 153.027 }
+       //     ]
+
+
+
             return View();
         }
 

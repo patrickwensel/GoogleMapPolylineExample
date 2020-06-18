@@ -7,8 +7,10 @@ namespace GoogleMapPolylineExample.Models
 {
     public class CorridorTrackPoint
     {
-        public decimal Lat { get; set; }
-        public decimal Lng { get; set; }
+        public string Code { get; set; }
+        public double Lat { get; set; }
+        public double Lng { get; set; }
+        public double MileMark { get; set; }
 
     }
 }
