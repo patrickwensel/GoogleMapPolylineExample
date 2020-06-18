@@ -14,22 +14,23 @@ namespace GoogleMapPolylineExample.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            //List<CorridorTrackPoint> corridorTrackPoints = _context.CorridorTrackPoints.ToList();
+            List<CorridorTrackPoint> corridorTrackPoints = _context.CorridorTrackPoints.ToList();
 
-            List<CorridorTrackPoint> corridorTrackPoints = new List<CorridorTrackPoint>
-            {
-                new CorridorTrackPoint(){ Lat = 37.772, Lng = -122.214 },
-                new CorridorTrackPoint(){ Lat = 21.291, Lng = -157.821  },
-                new CorridorTrackPoint(){ Lat = -18.142, Lng = 178.431 },
-                new CorridorTrackPoint(){ Lat = -27.467, Lng = 153.027  },
-            };
+            //List<CorridorTrackPoint> corridorTrackPoints = new List<CorridorTrackPoint>
+            //{
+            //    new CorridorTrackPoint(){ Lat = 37.772, Lng = -122.214 },
+            //    new CorridorTrackPoint(){ Lat = 21.291, Lng = -157.821  },
+            //    new CorridorTrackPoint(){ Lat = -18.142, Lng = 178.431 },
+            //    new CorridorTrackPoint(){ Lat = -27.467, Lng = 153.027  },
+            //};
        
             string arrayOfTrackPoints = "[";
 
