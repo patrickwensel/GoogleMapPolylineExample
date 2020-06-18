@@ -21,17 +21,29 @@ namespace GoogleMapPolylineExample.Controllers
 
         public IActionResult Index()
         {
-            var trackPoints = _context.CorridorTrackPoints.ToList();
+            //List<CorridorTrackPoint> corridorTrackPoints = _context.CorridorTrackPoints.ToList();
 
+            List<CorridorTrackPoint> corridorTrackPoints = new List<CorridorTrackPoint>
+            {
+                new CorridorTrackPoint(){ Lat = 38.9053623, Lng = -121.0841413 },
+                new CorridorTrackPoint(){ Lat = 38.9041518, Lng = -121.0836144 }
+            };
 
-       //     [
-       //         { lat: 37.772, lng: -122.214 },
-			    //{ lat: 21.291, lng: -157.821 },
-			    //{ lat: -18.142, lng: 178.431 },
-			    //{ lat: -27.467, lng: 153.027 }
-       //     ]
+            string arrayOfTrackPoints = "[";
 
+            foreach(CorridorTrackPoint corridorTrackPoint in corridorTrackPoints)
+            {
+                arrayOfTrackPoints = arrayOfTrackPoints + "{ lat: "
+                    + corridorTrackPoint.Lat
+                    + ", lng: "
+                    + corridorTrackPoint.Lng
+                    + " },";
+            }
 
+            arrayOfTrackPoints = arrayOfTrackPoints.Remove(arrayOfTrackPoints.Length - 1, 1);
+            arrayOfTrackPoints = arrayOfTrackPoints + "]";
+
+            ViewData["arrayOfTrackPoints"] = arrayOfTrackPoints;
 
             return View();
         }
