@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using GoogleMapPolylineExample.Models;
+using System.Runtime.CompilerServices;
 
 namespace GoogleMapPolylineExample.Controllers
 {
@@ -22,7 +23,7 @@ namespace GoogleMapPolylineExample.Controllers
 
         public IActionResult Index()
         {
-            List<CorridorTrackPoint> corridorTrackPoints = _context.CorridorTrackPoints.ToList();
+            List<CorridorTrackPoint> corridorTrackPoints = _context.CorridorTrackPoints.Where(y=> y.CorridorTrackId== Guid.Parse("E3F2F0D8-8A90-4203-9A91-D9E3535A1B0E")).ToList();
 
             //List<CorridorTrackPoint> corridorTrackPoints = new List<CorridorTrackPoint>
             //{
@@ -31,7 +32,7 @@ namespace GoogleMapPolylineExample.Controllers
             //    new CorridorTrackPoint(){ Lat = -18.142, Lng = 178.431 },
             //    new CorridorTrackPoint(){ Lat = -27.467, Lng = 153.027  },
             //};
-       
+
             string arrayOfTrackPoints = "[";
 
             foreach(CorridorTrackPoint corridorTrackPoint in corridorTrackPoints)
